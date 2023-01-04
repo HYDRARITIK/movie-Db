@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 // make sure to use https
-const api_key='739c3927';
-// http://www.omdbapi.com/?i=tt3896198&apikey=739c3927
-// http://www.omdbapi.com/?s=superman&apikey=739c3927
+
 
 // export const API_ENDPOINT = `http://www.omdbapi.com/?s=${search_str}&apikey=${api_key}&`
 const AppContext = React.createContext()
@@ -15,13 +13,13 @@ const AppProvider = ({ children }) => {
   const [statement,setStatement]=useState('data is coming wait');
   const [searchStr,setSearchStr]=useState('batman');
 
-  const url_=`http://www.omdbapi.com/?s=${searchStr}&apikey=${api_key}&`;
+  const url_=`http://www.omdbapi.com/?s=${searchStr}&apikey=${process.env.REACT_APP_MOVIE_API_KEY}&`;
 
   
   const fetchData=async()=>{
     
+    setLoading(true);
     try {
-      setLoading(true);
       const response=await fetch(url_);
       const data=await response.json();
       

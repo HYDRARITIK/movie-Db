@@ -24,7 +24,7 @@ const MovieCard = ({Title,Poster,Type,imdbID,Year}) => {
   }
 
   return <>
-    <div key={imdbID} onmouseover={handleOver} onmouseout={handleOut}>
+    <div key={imdbID} onMouseOver={handleOver} onMouseOut={handleOut}>
     <Link to={`/single/${imdbID}`} className="movie" >
       <article key={imdbID} >
         <img src={Poster} alt={Title} className="" />

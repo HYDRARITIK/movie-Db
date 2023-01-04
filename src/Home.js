@@ -7,11 +7,12 @@ import { useGlobalContext } from './context'
 
 const Home = () => {
   const {loading}=useGlobalContext();
+
+
   return <>
     <main>
 
     <Form/>
-
     {!loading && <Movies/>}
 
     </main>
